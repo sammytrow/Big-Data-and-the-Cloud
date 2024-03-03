@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  area_controller:
+    build:
+      context: .
+      dockerfile: app/api/docker/area/Dockerfile
+    image: area_controller
+    networks:
+      - microservices
+    ports:
+      - 50051:50051
+  registration_controller:
+    build:
+      context: .
+      dockerfile: app/api/docker/registration/Dockerfile
+    image: registration_controller
+    networks:
+      - microservices
+    ports:
+      - 50052:50052
+  validation_controller:
+    build:
+      context: .
+      dockerfile: app/api/docker/validation/Dockerfile
+    image: validation_controller
+    networks:
+      - microservices
+    ports:
+      - 50053:50053
+
+networks:
+    microservices:

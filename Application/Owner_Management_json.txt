@@ -1,0 +1,69 @@
+---Owner Management ---
+
+Service 1 - Register new area
+{
+	"new_area": {
+		"areaID" : "12testyou", 
+		"password" : "test_password", 
+		"areaName" : "The Four Candles - JD Wetherspoon", 
+		"userName" : "4candles","
+		"postcode" : "OX4 3LR", 
+		"county" : "Oxfordshire",
+		"city" : "Oxford", 
+		"street" : "Between Towns Rd", 
+		"areaNum" : "59a", 
+		"entryLvl" : "2", 
+		"maxNum" : "50", 
+		"currentNum" : 0
+	}
+}
+
+Response:
+{
+	message: "..."
+}
+
+
+Service 2 - Update are details
+{
+	"area": { 
+		"userName" : "4candles","
+		"password" : "test_password", 
+		"areaName" : "The Four Candles - JD Wetherspoon", 
+		"postcode" : "OX4 3LR", 
+		"county" : "Oxfordshire",
+		"city" : "Oxford", 
+		"street" : "Between Towns Rd", 
+		"areaNum" : "59a", 
+		"entryLvl" : "2", 
+		"maxNum" : "50", 
+		"currentNum" : 0
+	}
+}
+Response:
+{
+	message: "..."
+}
+
+Service 3 - Create staff account
+{
+	"new_staff": {
+		"staffID" : "121", 
+		"areaID" : "12testyou", 
+		"username" : "st1aff1", 
+		"password" : "test_password1"
+	}
+}
+Response:
+{
+	message: "..."
+}
+
+Service 4 Receive Notifications
+{
+	"holder":{
+		"AreaID" : "12testyou",
+		"CrownpassID" : 1234567898,
+		"message" : "Alert! current customer is infected, pleart evacuate immediately"
+	}
+}

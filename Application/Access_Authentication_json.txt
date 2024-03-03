@@ -1,0 +1,27 @@
+---Access Authentication---
+
+Sevice 1 - identify owner
+{
+	"area_owner":{
+		"AreaID" : "...",
+		"Username" : "...",
+		"Password" : "xxxxxx"
+	}
+}
+Response:
+{
+	message: "..."
+}
+
+Sevice 2 - identify staff
+{
+	"area_staff":{
+		"AreaID" : "...",
+		"Username" : "...",
+		"Password" : "xxxxxx"
+	}
+}
+Response:
+{
+	message: "..."
+}

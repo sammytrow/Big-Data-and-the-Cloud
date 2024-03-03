@@ -1,0 +1,70 @@
+---Entry Management---
+
+Service 1 - Set infection entry requirements
+{
+	"area_entry" :{
+		"AreaID" : "...",
+		"Username" : "...",
+		"Password" : "xxxxx",
+		"Entrylvl" : 3
+	}
+}
+Response:
+{
+	message: "..."
+}
+
+Service 2 - Check-in
+{
+	"Crownpass_checkin" :{
+		"AreaID" : "...",
+		"CrownpassID" : 1234567898,
+		"EntryDate" : "30-4-2022",
+		"EntryTime" : "2000"
+	}
+}
+Response:
+{
+	message: "..."
+}
+
+Service 3 - Check-out
+{
+	"Crownpass_checkin" :{
+		"AreaID" : "...",
+		"CrownpassID" : 1234567898,
+		"ExitDate" : "30-4-2022",
+		"ExitTime" : "2000"
+	}
+}
+Response:
+{
+	message: "..."
+}
+
+Service 4 - Validate Crownpass ID
+{
+	"Crownpass" :{
+		"CrownpassID" : 1234567898
+	}
+}
+Response:
+{
+	"CrownpassHolder":{
+		"CrownpassID" : 1234567898,
+		"infection_status" : 4
+	}
+}
+
+Service 5 - Entry Requirements Met
+{
+	"check_req" :{
+		"AreaID" : "..."
+		"CrownpassID" : 1234567898,
+		"infection_status" : 4
+	}
+}
+Response:
+{
+	message: "..."
+}

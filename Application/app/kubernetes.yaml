@@ -1,0 +1,130 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: area-controller
+    labels:
+        app: area-controller
+spec:
+    replicas: 3
+    selector:
+        matchLabels:
+            app: area-controller
+    template:
+        metadata:
+            labels:
+                app: area-controller
+        spec:
+            containers:
+                - name: area-controller
+                  image: area-controller:0.1
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: registration-controller
+    labels:
+        app: registration-controller
+spec:
+    replicas: 3
+    selector:
+        matchLabels:
+            app: registration-controller
+    template:
+        metadata:
+            labels:
+                app: registration-controller
+        spec:
+            containers:
+                - name: registration-controller
+                  image: registration-controller:0.1
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: validation-controller
+    labels:
+        app: validation-controller
+spec:
+    replicas: 3
+    selector:
+        matchLabels:
+            app: validation-controller
+    template:
+        metadata:
+            labels:
+                app: validation-controller
+        spec:
+            containers:
+                - name: validation-controller
+                  image: validation-controller:0.1
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: application
+    labels:
+        app: application
+spec:
+    replicas: 3
+    selector:
+        matchLabels:
+            app: application
+    template:
+        metadata:
+            labels:
+                app: application
+        spec:
+            containers:
+                - name: application
+                  image: application:0.1
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: application
+spec:
+    selector:
+        app: application
+    ports:
+        - protocol: TCP
+          port: 5000
+          targetPort: 5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: validation-controller
+spec:
+    selector:
+        app: validation-controller
+    ports:
+        - protocol: TCP
+          port: 50053
+          targetPort: 50053
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: registration-controller
+spec:
+    selector:
+        app: registration-controller
+    ports:
+        - protocol: TCP
+          port: 50052
+          targetPort: 50052
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: area-controller
+spec:
+    type: LoadBalancer
+    selector:
+        app: area-controller
+    ports:
+        - protocol: TCP
+          port: 50051
+          targetPort: 50051
